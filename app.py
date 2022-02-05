@@ -25,8 +25,6 @@ of a time series, one that is more sensitive to long-term than to short-term flu
 """
 st.write(description)
 datasets_available  = ('EOS-USD | 2017 -> Feb 2022 1 day ','ETH-USD | 1 Jan 2020 -> 1 Jan 2021 1 minute ')
-
-
 choosen_ticker = st.radio(label='Datesets avaiable:', options=datasets_available)
 
 def load_dataset():
@@ -34,6 +32,7 @@ def load_dataset():
         st.write('EOS-BTC incoming')
         df = pd.read_csv('eos-usd.csv')
         st.write(df.head())
+
     elif 'ETH' in choosen_ticker:
         st.write("ETH-USD incoming")
         df = pd.read_csv('eth-usd-2021-1m.csv')
