@@ -18,19 +18,22 @@ description = """
 Using the HP filter to compose a strategy and test it. \n
 """
 st.write(description)
-aviables_tickers = ('EOS-USD | 2017 -> Feb 2022 1 day ','ETH-USD | 1 Jan 2020 - 1 Jan 2021 1 minute ')
+aviables_tickers = ('EOS-USD | 2017 -> Feb 2022 1 day ','ETH-USD | 1 Jan 2020 -> 1 Jan 2021 1 minute ')
 
 
 choosen_ticker = st.radio(label='Aviables Tickers ', options=aviables_tickers)
 
 
 
+def load_dataset():
+    if  'EOS' in choosen_ticker:
+        st.write('EOS-BTC incoming')
+        df = pd.read_csv('eos-usd.csv')
+        st.write(df.head())
 
-if  'EOS-BTC' in choosen_ticker:
-    st.write('EOS-BTC incoming')
+    elif 'ETH' in :
+        st.write("ETH-BTC incoming")
+    else:
+        st.write("Sorry, we could't solve your request")
 
-
-elif 'ETH-USDT':
-    st.write("You didn't select comedy.")
-else:
-    st.write("Sorry, we could't solve your request")
+load_dataset()
