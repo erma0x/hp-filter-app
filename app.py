@@ -15,8 +15,8 @@ import streamlit as st
 import pandas as pd
 
 description = """
-Time Series Analysis: seasonality decomposition
-Use the HP filter to compose a strategy and test it. \n
+Time Series Analysis: seasonality decomposition Hodrick–Prescott filter
+\n
 The Hodrick–Prescott filter is a mathematical tool used in macroeconomics, 
 especially in real business cycle theory, to remove the cyclical component 
 of a time series from raw data. It is used to obtain a smoothed-curve representation
