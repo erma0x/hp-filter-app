@@ -2,9 +2,11 @@
 """
 DONE
  radiobutton con 2 dataset disponibili, ETHUSD e EOSBTC
+funzione che legge la risposta del radiobutton e a seconda di quello lancia un data_loader(): 
 
 TO DO 
-funzione che legge la risposta del radiobutton e a seconda di quello lancia un data_loader(): 
+applica le bollinger bands alla decomposizione, le bollinger hanno una finestra per essere calcolate
+prova ad entrare al rialzo quando sta sotto < % di probabilita' della bollinger bands
 
 
 optimization of the opening signal
@@ -16,7 +18,8 @@ import pandas as pd
 import statsmodels.api as sm
 
 description = """
-Time Series Analysis: seasonality decomposition with Hodrick–Prescott filter
+Hodrick–Prescott filter Trading Strategy based Backtester 
+Seasonality decomposition in time series analysis with Hodrick–Prescott filter
 \n
 The Hodrick–Prescott filter is a mathematical tool used in macroeconomics, 
 especially in real business cycle theory, to remove the cyclical component 
