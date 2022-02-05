@@ -36,9 +36,15 @@ def app():
         df = pd.read_csv('eos-usd.csv')
         st.write(df.head())
         st.line_chart(df['price'])
+        # PRICE DECOMPOSITION
         data_cycle, data_trend = sm.tsa.filters.hpfilter(df['price'])
         st.line_chart(data_cycle)
         st.line_chart(data_trend)
+
+        # VOLUME DECOMPOSITION
+        data_cycle_vol, data_trend_vol = sm.tsa.filters.hpfilter(df['total_volume'])
+        st.line_chart(data_cycle_vol)
+        st.line_chart(data_trend_vol)
 
     elif 'ETH' in choosen_ticker:
         st.write("ETH-USD incoming")
@@ -52,9 +58,9 @@ def app():
 
 app()
 
-# # PRICE DECOMPOSITION
+# 
 # plt.figure(figsize=(25,20))
 # plt.plot(data_cycle)
 
-# # VOLUME DECOMPOSITION
-# data_cycle, data_trend = sm.tsa.filters.hpfilter(df['volume'])
+# 
+# 
