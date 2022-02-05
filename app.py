@@ -24,7 +24,9 @@ of a time series, one that is more sensitive to long-term than to short-term flu
 \n
 """
 st.write(description)
-datasets_available  = ('EOS-USD | 2017 -> Feb 2022 1 day ','ETH-USD | 1 Jan 2020 -> 1 Jan 2021 1 minute ')
+datasets_available  = ('EOS-USD | 2017 - Feb 2022 | frequency: 1 day  ',
+                        'ETH-USD | 28 Jul 2020 - 1 Jan 2021 | frequency: 1 minute ')
+
 choosen_ticker = st.radio(label='Datesets avaiable:', options=datasets_available)
 
 def load_dataset():
