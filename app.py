@@ -35,6 +35,12 @@ def app():
         df = pd.read_csv('eos-usd.csv')
         st.write(df.head())
         st.line_chart(df['price'])
+        data_cycle, data_trend = sm.tsa.filters.hpfilter(df['close'])
+        st.line_chart(data_cycle)
+        #st.line_chart(data_trend)
+
+
+
 
 
     elif 'ETH' in choosen_ticker:
@@ -48,13 +54,6 @@ def app():
 
 
 app()
-
-
-# data_cycle, data_trend = sm.tsa.filters.hpfilter(df['close'])
-# st.line_chart(df['close'])
-
-# df['close'].plot(figsize=(25,20))
-# plt.ylabel("ETH vs USD")
 
 # # PRICE DECOMPOSITION
 # plt.figure(figsize=(25,20))
