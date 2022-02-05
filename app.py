@@ -10,9 +10,10 @@ funzione che legge la risposta del radiobutton e a seconda di quello lancia un d
 optimization of the opening signal
 optimization of TP & SL
 """
-
 import streamlit as st
+
 import pandas as pd
+import statsmodels.api as sm
 
 description = """
 Time Series Analysis: seasonality decomposition with Hodrick–Prescott filter
