@@ -30,9 +30,11 @@ def load_dataset():
         st.write('EOS-BTC incoming')
         df = pd.read_csv('eos-usd.csv')
         st.write(df.head())
-
     elif 'ETH' in choosen_ticker:
-        st.write("ETH-BTC incoming")
+        st.write("ETH-USD incoming")
+        df = pd.read_csv('eth-usd-2021-1m.csv')
+        st.write(df.head())
+
     else:
         st.write("Sorry, we could't solve your request")
 
