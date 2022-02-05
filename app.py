@@ -46,3 +46,18 @@ def load_dataset():
     return(df)
 
 df = load_dataset()
+
+st.line_chart(df['close'])
+
+# data_cycle, data_trend = sm.tsa.filters.hpfilter(df['close'])
+# st.line_chart(df['close'])
+
+# df['close'].plot(figsize=(25,20))
+# plt.ylabel("ETH vs USD")
+
+# # PRICE DECOMPOSITION
+# plt.figure(figsize=(25,20))
+# plt.plot(data_cycle)
+
+# # VOLUME DECOMPOSITION
+# data_cycle, data_trend = sm.tsa.filters.hpfilter(df['volume'])
