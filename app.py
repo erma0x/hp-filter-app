@@ -15,7 +15,7 @@ import streamlit as st
 import pandas as pd
 
 description = """
-Time Series Analysis: seasonality decomposition Hodrick–Prescott filter
+Time Series Analysis: seasonality decomposition with Hodrick–Prescott filter
 \n
 The Hodrick–Prescott filter is a mathematical tool used in macroeconomics, 
 especially in real business cycle theory, to remove the cyclical component 
@@ -24,12 +24,10 @@ of a time series, one that is more sensitive to long-term than to short-term flu
 \n
 """
 st.write(description)
-aviables_tickers = ('EOS-USD | 2017 -> Feb 2022 1 day ','ETH-USD | 1 Jan 2020 -> 1 Jan 2021 1 minute ')
+datasets_available  = ('EOS-USD | 2017 -> Feb 2022 1 day ','ETH-USD | 1 Jan 2020 -> 1 Jan 2021 1 minute ')
 
 
-choosen_ticker = st.radio(label='Aviables Tickers ', options=aviables_tickers)
-
-
+choosen_ticker = st.radio(label='Datesets avaiable:', options=datasets_available)
 
 def load_dataset():
     if  'EOS' in choosen_ticker:
@@ -44,4 +42,6 @@ def load_dataset():
     else:
         st.write("Sorry, we could't solve your request")
 
-load_dataset()
+    return(df)
+
+df = load_dataset()
