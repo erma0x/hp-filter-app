@@ -10,9 +10,9 @@ import streamlit as st
 import pandas as pd
 
 description = """
-Using the HP filter to compose a strategy and test it.
-Optimization of the opening signal.
-Optimization of TP & SL
+Using the HP filter to compose a strategy and test it. <br>
+Optimization of the opening signal. <br>
+Optimization of TP & SL <br>
 """
 st.write(description)
 aviables_tickers = ('EOS-BTC','ETH-USDT')
