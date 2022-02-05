@@ -29,25 +29,26 @@ datasets_available  = ('EOS-USD | 2017 - Feb 2022 | frequency: 1 day  ',
 
 choosen_ticker = st.radio(label='Datesets avaiable:', options=datasets_available)
 
-def load_dataset():
+def app():
     if  'EOS' in choosen_ticker:
         st.write('EOS-BTC incoming')
         df = pd.read_csv('eos-usd.csv')
         st.write(df.head())
+        st.line_chart(df['price'])
+
 
     elif 'ETH' in choosen_ticker:
         st.write("ETH-USD incoming")
         df = pd.read_csv('eth-usd-2021-1m.csv')
         st.write(df.head())
+        st.line_chart(df['close'])
 
     else:
         st.write("Sorry, we could't solve your request")
 
-    return(df)
 
-df = load_dataset()
+app()
 
-st.line_chart(df['close'])
 
 # data_cycle, data_trend = sm.tsa.filters.hpfilter(df['close'])
 # st.line_chart(df['close'])
