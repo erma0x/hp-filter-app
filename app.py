@@ -15,6 +15,6 @@ Optimization of the opening signal. \n
 Optimization of TP & SL \n
 """
 st.write(description)
-aviables_tickers = ('EOS-BTC','ETH-USDT')
+aviables_tickers = ('EOS-BTC 2020-2021 1 day ','ETH-USDT 2020-2021 1 minute ')
 
-st.radio(label='aviables tickers', options=aviables_tickers)
+st.radio(label='Aviables Tickers ', options=aviables_tickers)
