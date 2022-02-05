@@ -35,7 +35,7 @@ def app():
         df = pd.read_csv('eos-usd.csv')
         st.write(df.head())
         st.line_chart(df['price'])
-        data_cycle, data_trend = sm.tsa.filters.hpfilter(df['close'])
+        data_cycle, data_trend = sm.tsa.filters.hpfilter(df['price'])
         st.line_chart(data_cycle)
         #st.line_chart(data_trend)
 
