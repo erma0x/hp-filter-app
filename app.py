@@ -38,11 +38,7 @@ def app():
         st.line_chart(df['price'])
         data_cycle, data_trend = sm.tsa.filters.hpfilter(df['price'])
         st.line_chart(data_cycle)
-        #st.line_chart(data_trend)
-
-
-
-
+        st.line_chart(data_trend)
 
     elif 'ETH' in choosen_ticker:
         st.write("ETH-USD incoming")
