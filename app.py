@@ -18,7 +18,6 @@ import pandas as pd
 import statsmodels.api as sm
 
 description = """
-Hodrick–Prescott filter Trading Strategy based Backtester 
 Seasonality decomposition in time series analysis with Hodrick–Prescott filter
 \n
 The Hodrick–Prescott filter is a mathematical tool used in macroeconomics, 
@@ -28,8 +27,8 @@ of a time series, one that is more sensitive to long-term than to short-term flu
 \n
 """
 st.write(description)
-datasets_available  = ('EOS-USD | 2017 - Feb 2022 | frequency: 1 day  ',
-                        'ETH-USD | 28 Jul 2020 - 1 Jan 2021 | frequency: 1 minute ')
+datasets_available  = ('EOS-USD | 2017 - Feb 2022      \t | frequency: 1 day  ',
+                       'ETH-USD | 28 Jul 2020 - 1 Jan 2021 \t | frequency: 1 minute ')
 
 choosen_ticker = st.radio(label='Datesets avaiable:', options=datasets_available)
 
@@ -38,7 +37,7 @@ def app():
         st.write('EOS-BTC incoming')
         df = pd.read_csv('eos-usd.csv')
         st.write(df.head())
-        st.line_chart(df['price'])
+        st.line_chart(df['price'],columns=['price EOSBTC'])
         # PRICE DECOMPOSITION
         data_cycle, data_trend = sm.tsa.filters.hpfilter(df['price'])
         st.line_chart(data_cycle)
@@ -60,10 +59,3 @@ def app():
 
 
 app()
-
-# 
-# plt.figure(figsize=(25,20))
-# plt.plot(data_cycle)
-
-# 
-# 
