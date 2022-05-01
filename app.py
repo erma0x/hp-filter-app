@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import statsmodels.api as sm
 
-st.title('WebApp with Streamlit for Fintech World')
+st.title('WebApp for Fintech World')
 
 description = """
 Seasonality decomposition in time series analysis with Hodrick–Prescott filter. \n
@@ -34,14 +34,14 @@ def app():
         # PRICE DECOMPOSITION
         data_cycle, data_trend = sm.tsa.filters.hpfilter(df['Adj Close'])
         
-        st.write("Mircosoft data")
-        st.line_chart(data_cycle)
+        st.write("Mircosoft data cycle with HP filter")
+        st.area_chart(data_cycle)
         
         st.write("Microsoft data trend with HP filter")
         st.line_chart(data_trend)
         
         st.write("Microsoft daily return")
-        st.bar_chart(df['daily_return'])
+        st.line_chart(df['daily_return'])
 
     else:
         st.write("Sorry, we could't solve your request")
