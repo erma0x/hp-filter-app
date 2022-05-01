@@ -27,8 +27,7 @@ of a time series, one that is more sensitive to long-term than to short-term flu
 \n
 """
 st.write(description)
-datasets_available  = ('Microsoft',
-                       'Apple')
+datasets_available  = ('Microsoft - adjusted close price - daily - 2017-01-03 to 2021-09-10')
 
 choosen_ticker = st.radio(label='Datesets avaiable:', options=datasets_available)
 
@@ -37,23 +36,17 @@ def app():
         st.write('Microsoft incoming')
         df = pd.read_csv('MSFT.csv')
         st.write(df.head())
-        st.line_chart(df['Adj Close'])
-        
-        # PRICE DECOMPOSITION
-        data_cycle, data_trend = sm.tsa.filters.hpfilter(df['Adj Close'])
-        st.line_chart(data_cycle)
-        st.line_chart(data_trend)
-
-    elif 'Apple' in choosen_ticker:
-        st.write("Apple")
-        df = pd.read_csv('APPL.csv')
-        st.write(df.head())
+        st.write('Microsoft daily adjusted close price ')
         st.line_chart(df['Adj Close'])
 
         # PRICE DECOMPOSITION
         data_cycle, data_trend = sm.tsa.filters.hpfilter(df['Adj Close'])
+        st.write("Mircosoft data")
         st.line_chart(data_cycle)
+        st.write("Microsoft data trend with HP filter")
         st.line_chart(data_trend)
+        st.write("Microsoft daily return")
+        st.line_chart(df['daily_return'])
 
     else:
         st.write("Sorry, we could't solve your request")
