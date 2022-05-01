@@ -61,11 +61,9 @@ def app():
         st.line_chart(df['daily_return'])
         
         ## generate the data and plot it for an ideal normal curve
-        df_gauss = pd.Dataframe()
-        df_gauss['x'] = df['daily_return'].copy()
-        df_gauss['y'] = stats.norm.pdf(df['daily_return'], df['daily_return'].mean(), df['daily_return'].std())
-        st.line_chart(df_gauss)
-
+        st.write("Microsoft daily return mean ",df['daily_return'].mean())
+        st.write("Microsoft daily return standard deviation ",df['daily_return'].std())
+        
     else:
         st.write("Sorry, we could't solve your request")
 
