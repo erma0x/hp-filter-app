@@ -63,7 +63,7 @@ def app():
         ## generate the data and plot it for an ideal normal curve
         ## y-axis as the gaussian
         y_data = stats.norm.pdf(df['daily_return'], df['daily_return'].mean(), df['daily_return'].std())
-        st.area_chart(y_data)
+        plt.plot(df['daily_return'],y_data)
 
     else:
         st.write("Sorry, we could't solve your request")
