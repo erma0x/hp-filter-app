@@ -62,8 +62,8 @@ def app():
         
         ## generate the data and plot it for an ideal normal curve
         ## y-axis as the gaussian
-        y_data = stats.norm.pdf(daily_return, daily_return.mean(), daily_return.sd())
-        st.line_chart(daily_return, y_data)
+        y_data = stats.norm.pdf(df['daily_return'], df['daily_return'].mean(), df['daily_return'].std())
+        st.line_chart(df['daily_return'], y_data)
 
     else:
         st.write("Sorry, we could't solve your request")
