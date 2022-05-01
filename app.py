@@ -27,7 +27,8 @@ of a time series, one that is more sensitive to long-term than to short-term flu
 \n
 """
 st.write(description)
-datasets_available  = ('Microsoft - adjusted close price - daily - 2017-01-03 to 2021-09-10')
+datasets_available  = ("Microsoft MSFT - adjusted close price - daily - 2017-01-03 to 2021-09-10",
+"(Test) Apple APPL")
 
 choosen_ticker = st.radio(label='Datesets avaiable:', options=datasets_available)
 
