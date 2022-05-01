@@ -27,35 +27,39 @@ of a time series, one that is more sensitive to long-term than to short-term flu
 \n
 """
 st.write(description)
-datasets_available  = ('EOS-USD | 2017 - Feb 2022      \t | frequency: 1 day  ',
-                       'ETH-USD | 28 Jul 2020 - 1 Jan 2021 \t | frequency: 1 minute ')
+datasets_available  = ('Microsoft',
+                       'Apple')
 
 choosen_ticker = st.radio(label='Datesets avaiable:', options=datasets_available)
 
 def app():
-    if  'EOS' in choosen_ticker:
-        st.write('EOS-BTC incoming')
-        df = pd.read_csv('eos-usd.csv')
+    if  'Microsoft' in choosen_ticker:
+        st.write('Microsoft incoming')
+        df = pd.read_csv('MSFT.csv')
         st.write(df.head())
-        st.line_chart(df['price'],columns=['price EOSBTC'])
+        st.line_chart(df['Adj Close'])
         # PRICE DECOMPOSITION
-        data_cycle, data_trend = sm.tsa.filters.hpfilter(df['price'])
+        data_cycle, data_trend = sm.tsa.filters.hpfilter(df['Adj Close'])
+        st.line_chart(data_cycle)
+        st.line_chart(data_trend)
+
+    elif 'Apple' in choosen_ticker:
+        st.write("Apple")
+        df = pd.read_csv('APPL.csv')
+        st.write(df.head())
+        st.line_chart(df['Close'])
+
+        # PRICE DECOMPOSITION
+        data_cycle, data_trend = sm.tsa.filters.hpfilter(df['Close'])
         st.line_chart(data_cycle)
         st.line_chart(data_trend)
 
         # VOLUME DECOMPOSITION
-        data_cycle_vol, data_trend_vol = sm.tsa.filters.hpfilter(df['total_volume'])
+        data_cycle_vol, data_trend_vol = sm.tsa.filters.hpfilter(df['Volume'])
         st.line_chart(data_cycle_vol)
         st.line_chart(data_trend_vol)
 
-    elif 'ETH' in choosen_ticker:
-        st.write("ETH-USD incoming")
-        df = pd.read_csv('eth-usd-2021-1m.csv')
-        st.write(df.head())
-        st.line_chart(df['close'])
-
     else:
         st.write("Sorry, we could't solve your request")
-
 
 app()
