@@ -38,6 +38,7 @@ def app():
         df = pd.read_csv('MSFT.csv')
         st.write(df.head())
         st.line_chart(df['Adj Close'])
+        
         # PRICE DECOMPOSITION
         data_cycle, data_trend = sm.tsa.filters.hpfilter(df['Adj Close'])
         st.line_chart(data_cycle)
@@ -47,17 +48,12 @@ def app():
         st.write("Apple")
         df = pd.read_csv('APPL.csv')
         st.write(df.head())
-        st.line_chart(df['Close'])
+        st.line_chart(df['Adj Close'])
 
         # PRICE DECOMPOSITION
-        data_cycle, data_trend = sm.tsa.filters.hpfilter(df['Close'])
+        data_cycle, data_trend = sm.tsa.filters.hpfilter(df['Adj Close'])
         st.line_chart(data_cycle)
         st.line_chart(data_trend)
-
-        # VOLUME DECOMPOSITION
-        data_cycle_vol, data_trend_vol = sm.tsa.filters.hpfilter(df['Volume'])
-        st.line_chart(data_cycle_vol)
-        st.line_chart(data_trend_vol)
 
     else:
         st.write("Sorry, we could't solve your request")
