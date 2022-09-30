@@ -72,7 +72,6 @@ def app():
         
         st.subheader("Microsoft daily return %")
         st.line_chart(df_daily_return)
-        st.line_chart(np.zeros(df_daily_return.shape))
         
         st.subheader("Microsoft daily return statistics")
         ## generate the data and plot it for an ideal normal curve
