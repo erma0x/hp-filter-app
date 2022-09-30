@@ -39,11 +39,13 @@ st.write(description)
 
 datasets_available  = ("Microsoft MSFT - adjusted close price - daily - 2017-01-03 to 2021-09-10","Upload file")
 
-choosen_ticker = st.radio(label='Datesets avaiable:', options=datasets_available)
+st.subheader("Datesets avaiable:")
+choosen_ticker = st.radio(label='', options=datasets_available)
 
 def app():
   
     if  'Microsoft' in choosen_ticker:
+      
         df = pd.read_csv('MSFT.csv')
         
         #st.write(df.columns)
@@ -56,8 +58,8 @@ def app():
         #st.write('Microsoft (MSFT) dataset')
         #st.table(df.iloc[0:10])
         
+        st.subheader("Microsoft daily adjusted close price")
         st.line_chart(df['Adj Close'])
-        st.write("Microsoft daily adjusted close price")
       
         # PRICE DECOMPOSITION
         data_cycle, data_trend = sm.tsa.filters.hpfilter(df['Adj Close'])
