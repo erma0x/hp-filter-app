@@ -71,8 +71,8 @@ def app():
         st.write("Microsoft daily return")
 
         ## generate the data and plot it for an ideal normal curve
-        st.write("The Microsoft daily return mean : ",df_daily_return.mean())
-        st.write("The Microsoft daily return standard deviation is : ",df_daily_return.std())
+        st.write("The Microsoft daily return mean : ",df_daily_return.mean()[0])
+        st.write("The Microsoft daily return standard deviation is : ",df_daily_return.std()[0])
         
         
     if 'Upload file' in choosen_ticker :
