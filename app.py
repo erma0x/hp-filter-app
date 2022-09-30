@@ -62,15 +62,16 @@ def app():
         # PRICE DECOMPOSITION
         data_cycle, data_trend = sm.tsa.filters.hpfilter(df['Adj Close'])
         
+        st.subheader("Microsoft data cycle with HP filter")
         st.area_chart(data_cycle)
-        st.write("Microsoft data trend with HP filter")
-
-        st.line_chart(data_trend)
-        st.write("Microsoft data trend with HP filter")
         
+        st.subheader("Microsoft data trend with HP filter")
+        st.line_chart(data_trend)
+        
+        st.subheader("Microsoft daily return %")
         st.line_chart(df_daily_return)
-        st.write("Microsoft daily return")
-
+        
+        st.subheader("Microsoft daily return statistics")
         ## generate the data and plot it for an ideal normal curve
         st.write("The Microsoft daily return mean : ",df_daily_return.mean()[0])
         st.write("The Microsoft daily return standard deviation is : ",df_daily_return.std()[0])
