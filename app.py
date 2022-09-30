@@ -52,7 +52,7 @@ def app():
         data_cycle, data_trend = sm.tsa.filters.hpfilter(df['Adj Close'])
         
         st.write("Mircosoft data cycle with HP filter")
-        st.area_chart(df['Date'],data_cycle)
+        st.area_chart(data_cycle)
         
         st.write("Microsoft data trend with HP filter")
         st.line_chart(df['Date'],data_trend)
