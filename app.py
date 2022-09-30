@@ -43,7 +43,7 @@ def app():
         df = pd.read_csv('MSFT.csv')
         
         st.write('Microsoft (MSFT) dataset (first 5 rows)')
-        st.write(df.head())
+        st.write(df.head(3))
         
         st.write('Microsoft daily adjusted close price ')
         st.line_chart(df['Adj Close'])
@@ -52,13 +52,13 @@ def app():
         data_cycle, data_trend = sm.tsa.filters.hpfilter(df['Adj Close'])
         
         st.write("Mircosoft data cycle with HP filter")
-        st.area_chart(df['date'],data_cycle)
+        st.area_chart(df['Date'],data_cycle)
         
         st.write("Microsoft data trend with HP filter")
-        st.line_chart(df['date'],data_trend)
+        st.line_chart(df['Date'],data_trend)
         
         st.write("Microsoft daily return")
-        st.line_chart(df['date'],df['daily_return'])
+        st.line_chart(df['Date'],df['daily_return'])
         
         ## generate the data and plot it for an ideal normal curve
         st.write("The Microsoft daily return mean : ",str(df['daily_return'].mean()))
