@@ -52,19 +52,19 @@ def app():
         data_cycle, data_trend = sm.tsa.filters.hpfilter(df['Adj Close'])
         
         st.write("Mircosoft data cycle with HP filter")
-        st.area_chart(data_cycle)
+        st.area_chart(df['date'],data_cycle)
         
         st.write("Microsoft data trend with HP filter")
-        st.line_chart(data_trend)
+        st.line_chart(df['date'],data_trend)
         
         st.write("Microsoft daily return")
-        st.line_chart(df['daily_return'])
+        st.line_chart(df['date'],df['daily_return'])
         
         ## generate the data and plot it for an ideal normal curve
-        st.write("Microsoft daily return mean ",df['daily_return'].mean())
-        st.write("Microsoft daily return standard deviation ",df['daily_return'].std())
+        st.write("The Microsoft daily return mean : ",str(df['daily_return'].mean()))
+        st.write("The Microsoft daily return standard deviation is : ",str(df['daily_return'].std()))
 
     else:
-        st.write("Sorry, we could't solve your request")
+        st.write("Sorry, we could't solve your request for APPL")
 
 app()
