@@ -41,8 +41,10 @@ def app():
     if  'Microsoft' in choosen_ticker:
         
         df = pd.read_csv('MSFT.csv')
+        st.write(df.columns)
+        
         del df['daily_return']
-        df.set_index('Date')
+        #df.set_index(['Date'])
         
         st.write('Microsoft (MSFT) dataset (first 5 rows)')
         st.write(df.head(3))
