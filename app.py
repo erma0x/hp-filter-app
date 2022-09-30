@@ -42,6 +42,7 @@ def app():
         
         df = pd.read_csv('MSFT.csv')
         del df['daily_return']
+        df.set_index('Date')
         
         st.write('Microsoft (MSFT) dataset (first 5 rows)')
         st.write(df.head(3))
