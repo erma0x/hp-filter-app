@@ -53,8 +53,8 @@ def app():
         df_daily_return = df_daily_return.set_index(['Date'])
         df = df.set_index(['Date'])
         
-        st.write('Microsoft (MSFT) dataset (first 5 rows)')
-        st.table(df.iloc[0:10])
+        #st.write('Microsoft (MSFT) dataset')
+        #st.table(df.iloc[0:10])
         
         st.line_chart(df['Adj Close'])
         st.write("Microsoft daily adjusted close price")
