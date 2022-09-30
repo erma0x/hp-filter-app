@@ -42,12 +42,14 @@ def app():
         
         df = pd.read_csv('MSFT.csv')
         #st.write(df.columns)
-        
+        df_daily_return = df.copy()
+        del df_daily_return['Adj Close']
         del df['daily_return']
+        df_daily_return = df_daily_return.set_index(['Date'])
         df = df.set_index(['Date'])
         
         st.write('Microsoft (MSFT) dataset (first 5 rows)')
-        st.write(df.head(3))
+        st.table(df.iloc[0:10])
         
         st.line_chart(df['Adj Close'])
         st.write("Microsoft daily adjusted close price")
@@ -62,13 +64,13 @@ def app():
         st.line_chart(data_trend)
         st.write("Microsoft data trend with HP filter")
         
-        st.line_chart(df['daily_return'])
+        st.line_chart(df_daily_return)
         st.write("Microsoft daily return")
         plt.ylabel('stock price in USD $')
 
         ## generate the data and plot it for an ideal normal curve
-        #st.write("The Microsoft daily return mean : ",str(df['daily_return'].mean()))
-        #st.write("The Microsoft daily return standard deviation is : ",str(df['daily_return'].std()))
+        st.write("The Microsoft daily return mean : ",str(df_daily_return.mean()))
+        st.write("The Microsoft daily return standard deviation is : ",str(df_daily_return.std()))
 
     else:
         st.write("Sorry, we could't solve your request for APPL")
