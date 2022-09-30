@@ -6,10 +6,9 @@ import scipy as sp
 from scipy import stats
 
 st.title('Time series analysis with Hodrick–Prescott filter')
+st.header('General Description')
 
 description = """
-
-                      General Description
 
 Seasonality decomposition in time series analysis with Hodrick–Prescott filter.
 
@@ -72,8 +71,8 @@ def app():
         st.write("Microsoft daily return")
 
         ## generate the data and plot it for an ideal normal curve
-        st.write("The Microsoft daily return mean : ",str(df_daily_return.mean()))
-        st.write("The Microsoft daily return standard deviation is : ",str(df_daily_return.std()))
+        st.write("The Microsoft daily return mean : ",df_daily_return.mean())
+        st.write("The Microsoft daily return standard deviation is : ",df_daily_return.std())
         
         
     if 'Upload file' in choosen_ticker :
