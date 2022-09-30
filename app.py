@@ -41,28 +41,31 @@ def app():
     if  'Microsoft' in choosen_ticker:
         
         df = pd.read_csv('MSFT.csv')
+        del df['daily_return']
         
         st.write('Microsoft (MSFT) dataset (first 5 rows)')
         st.write(df.head(3))
         
-        st.write('Microsoft daily adjusted close price ')
         st.line_chart(df['Adj Close'])
-
+        plt.title("Microsoft daily adjusted close price")
+        plt.ylabel('stock price in USD $')
+      
         # PRICE DECOMPOSITION
         data_cycle, data_trend = sm.tsa.filters.hpfilter(df['Adj Close'])
         
-        st.write("Mircosoft data cycle with HP filter")
         st.area_chart(data_cycle)
+        plt.title("Microsoft data trend with HP filter")
+
+        st.line_chart(data_trend)
+        plt.title("Microsoft data trend with HP filter")
         
-        st.write("Microsoft data trend with HP filter")
-        st.line_chart(df['Date'],data_trend)
-        
-        st.write("Microsoft daily return")
-        st.line_chart(df['Date'],df['daily_return'])
-        
+        st.line_chart(df['daily_return'])
+        plt.title("Microsoft daily return")
+        plt.ylabel('stock price in USD $')
+
         ## generate the data and plot it for an ideal normal curve
-        st.write("The Microsoft daily return mean : ",str(df['daily_return'].mean()))
-        st.write("The Microsoft daily return standard deviation is : ",str(df['daily_return'].std()))
+        #st.write("The Microsoft daily return mean : ",str(df['daily_return'].mean()))
+        #st.write("The Microsoft daily return standard deviation is : ",str(df['daily_return'].std()))
 
     else:
         st.write("Sorry, we could't solve your request for APPL")
