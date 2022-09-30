@@ -41,8 +41,7 @@ def app():
   
     if  'Microsoft' in choosen_ticker:
         df = pd.read_csv('MSFT.csv')
-        st.download_button('Download file :', df)
-
+        
         #st.write(df.columns)
         df_daily_return = df.copy()
         del df_daily_return['Adj Close']
