@@ -5,12 +5,13 @@ import numpy as np
 import scipy as sp
 from scipy import stats
 
-st.title('Time series analysis with Hodrick–Prescott filter')
+st.title('Seasonality decomposition in time series analysis with Hodrick–Prescott filter')
+
+st.image('./header.png')
+
 st.header('General Description')
 
 description = """
-
-Seasonality decomposition in time series analysis with Hodrick–Prescott filter.
 
 The Hodrick–Prescott filter is a mathematical tool used in macroeconomics, 
 especially in real business cycle theory, to remove the cyclical component 
