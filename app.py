@@ -33,14 +33,16 @@ that are filtered at the sample's end are totally different from those in the mi
 st.write(description)
 
 datasets_available  = ("Microsoft MSFT - adjusted close price - daily - 2017-01-03 to 2021-09-10",
-                       "(Test) Apple APPL")
+                       "(Test) Apple APPL","Upload file")
 
 choosen_ticker = st.radio(label='Datesets avaiable:', options=datasets_available)
 
 def app():
+  
     if  'Microsoft' in choosen_ticker:
-        
         df = pd.read_csv('MSFT.csv')
+        st.download_button('Download file :', df)
+
         #st.write(df.columns)
         df_daily_return = df.copy()
         del df_daily_return['Adj Close']
@@ -71,8 +73,14 @@ def app():
         ## generate the data and plot it for an ideal normal curve
         st.write("The Microsoft daily return mean : ",str(df_daily_return.mean()))
         st.write("The Microsoft daily return standard deviation is : ",str(df_daily_return.std()))
-
-    else:
-        st.write("Sorry, we could't solve your request for APPL")
-
+        
+    
+    if  '(Test) Apple APPL' in choosen_ticker:
+         st.write("Sorry, we could't solve your request for APPL")
+        
+    if 'Upload file' in choosen_ticker :
+         st.file_uploader('Upload a CSV')
+      
+   
+    
 app()
