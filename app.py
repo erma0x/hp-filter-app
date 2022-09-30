@@ -5,7 +5,8 @@ import numpy as np
 import scipy as sp
 from scipy import stats
 
-st.title('Seasonality decomposition with HP-filter')
+st.title("""Seasonality decomposition of time series
+with the Hodrick–Prescott filter""")
 
 st.image('./header.png')
 
